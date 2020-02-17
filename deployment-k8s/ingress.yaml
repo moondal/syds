@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: ing-springboot-service
+  name: ing-msinput-service
 spec:
   rules:
     - host: wmsstock.169.56.88.122.nip.io

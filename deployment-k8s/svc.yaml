@@ -7,6 +7,6 @@ spec:
   selector:
     appname: ms-wms-input
   ports:
-    - name: port-myapp
+    - name: port-msinput
       port: 8081
       targetPort: 8090
