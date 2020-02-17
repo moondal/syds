@@ -6,6 +6,8 @@ spring:
     value: dev 
   application:
     name: sample-service
+#  main: 
+#    web-application-type: none
   #logging
   logging:
     pattern:
@@ -18,11 +20,11 @@ spring:
   # database
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://173.193.107.21:3306/koscomdb
+    url: jdbc:mysql://173.193.112.244:3306/msadb
 #    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-#    url: jdbc:log4jdbc:mysql://173.193.107.21:3306/koscomdb?useUnicode=true&characterEncoding=utf-8
-    username: koscom
-    password: "!koscom00"
+#    url: jdbc:log4jdbc:mysql://173.193.112.244:3306/msadb?useUnicode=true&characterEncoding=utf-8
+    username: msa
+    password: "passw0rd"
     sql-script-encoding: utf-8
     hikari:
       connection-timeout: 5000
@@ -32,7 +34,7 @@ spring:
       connection-test-query: SELECT 1
 
 mybatis:
-    #type-handlers-package: com.koscom.microservices.sample
+    #type-handlers-package: com.springboot.microservices.sample
     #config-location: classpath:mybatis/mapper/**/*.xml
     mapper-locations: classpath:mybatis/mapper/**/*.xml
     #check-config-location: true

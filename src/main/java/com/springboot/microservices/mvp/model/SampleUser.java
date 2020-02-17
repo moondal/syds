@@ -14,6 +14,8 @@ public class SampleUser {
 	 // file info
 	 private String fileName;
 	 private byte[] file;
+	 
+	 
 
 
 }

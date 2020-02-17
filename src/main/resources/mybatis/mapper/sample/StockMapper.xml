@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.microservices.mvp.dao.StockDao">
+	<!-- 
+		위치별 재고 조회 
+	 -->
+	<select id="selectStockList" parameterType="String" resultType="com.springboot.microservices.mvp.model.Stock">
+	    SELECT 	  C.LOC_CD
+				, C.LOC_NM
+				, B.BARCODE
+				, B.ITEM_CD
+				, B.ITEM_NM
+				, B.QTY
+				, B.MAKE_DT
+				, B.EFFT_DT 
+		FROM 	TB_STOCK A 
+						INNER JOIN TB_BARCODE B
+						ON A.BARCODE = B.BARCODE
+						
+						INNER JOIN TB_LOC C
+						ON A.LOC_CD = C.LOC_CD
+						
+		WHERE	B.ITEM_CD = #{itemCd}
+		LIMIT 3
+	</select>
+	
+	<!-- 
+		재고 증가 
+	 -->
+	<insert id="updateStockInsert" parameterType="Stock">
+		INSERT INTO TB_STOCK (
+			LOC_CD,
+			BARCODE
+		) VALUES (	
+			#{locCd},
+			#{barcode}
+		);
+		
+	</insert>
+	
+	<update id="updateBarcode" parameterType="Stock">
+		UPDATE 	TB_BARCODE
+		SET		SCAN_YN = 'Y'
+		WHERE	BARCODE = #{barcode};
+		
+	</update>
+	
+	
+	<!-- 
+		재고 감소 
+	 -->
+	<delete id="updateStockDelete" parameterType="Stock">
+		DELETE 	FROM TB_STOCK
+		WHERE 	LOC_CD = #{locCd}
+		AND		BARCODE = #{barcode}		
+	</delete>
+</mapper>
+	

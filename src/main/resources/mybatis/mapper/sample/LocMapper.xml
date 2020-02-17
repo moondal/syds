@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.microservices.mvp.dao.LocDao">
+	<!-- 
+		가용 위치 조회 
+	 -->
+	<select id="selectLocList" parameterType="String" resultType="com.springboot.microservices.mvp.model.Loc">
+	    SELECT 
+		    	 LOC_CD		
+				,LOC_NM	
+				,ONHAND_QTY
+				,CAPA_QTY
+				,USE_YN
+	    FROM 	TB_LOC
+	    WHERE 	USE_YN = 'Y'
+	    LIMIT 3
+	</select>
+	
+	<!-- 
+		가용상태 업데이트 
+	 -->
+	<update id="updateLoc" parameterType="loc">
+		UPDATE 
+			TB_LOC
+		SET
+			USE_YN = #{useYn},
+			ONHAND_QTY = 100
+		WHERE 1=1
+		AND LOC_CD = #{locCd}
+	</update>
+</mapper>
+	
