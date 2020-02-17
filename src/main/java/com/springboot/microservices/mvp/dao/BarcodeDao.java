@@ -16,5 +16,5 @@ public interface BarcodeDao {
 	 * @return
 	 * @throws Exception
 	 */
-	Barcode selectBarcode() throws Exception;	
+	List<Barcode> selectBarcode() throws Exception;	
 }

@@ -13,7 +13,6 @@
 	    FROM TB_BARCODE
 	    WHERE SCAN_YN = 'N'	    
 	    ORDER BY BARCODE
-	    LIMIT 1
 	</select>
 	
 </mapper>
