@@ -23,7 +23,7 @@ spec:
           - name: PORT
             valueFrom:
               configMapKeyRef:
-                name: config-myapp
+                name: config-msinput
                 key: PORT
         ports:
           - name: port1
