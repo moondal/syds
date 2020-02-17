@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mvp-myapp
+  name: ms-wms-input
 spec:
   type: ClusterIP
   selector:
-    appname: mvp-myapp
+    appname: ms-wms-input
   ports:
     - name: port-myapp
       port: 8081

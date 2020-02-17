@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mvp-myapp
+  name: ms-wms-input
   labels:
-    appname: mvp-myapp
+    appname: ms-wms-input
 spec:
   selector:
     matchLabels:
-      appname: mvp-myapp
+      appname: ms-wms-input
   replicas: 1
   template:
     metadata:
-      name: mvp-myapp
+      name: ms-wms-input
       labels:
-        appname: mvp-myapp
+        appname: ms-wms-input
     spec:
       containers:
-      - name: mvp-myapp
-        image: mycluster.icp:8500/ostrich/testimage
+      - name: ms-wms-input
+        image: mycluster.icp:8500/ostrich/mswmsinput
         imagePullPolicy: Always
         env:
           - name: PORT

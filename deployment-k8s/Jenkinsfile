@@ -16,7 +16,7 @@ def notifyMail(STATUS, RECIPIENTS) {
 
 /* ------------------------------ */
 
-def emailRecipients="happycloudpak@gmail.com"
+def emailRecipients="mshan0624@gmail.com"
 
 // notifySlack("STARTED", "#FFFF00")
 // notifyMail("STARTED", "${emailRecipients}")
@@ -46,7 +46,7 @@ podTemplate(
 			echo "**** START : " + stageName
 			
 			//git "https://github.com/devJacob01/springcloud.git"
-			git "https://gitlab.com/sylvi12/ms-wms-input.git"
+			git "https://gitlab.com/samyang.minsu/ms-wms-input.git"
 			// git url: "https://github.com/devJacob01/springcloud.git", branch: "master", credentialsId: "auth_gitlab"	
 			
 		}

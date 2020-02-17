@@ -6,10 +6,10 @@ metadata:
   name: ing-springboot-service
 spec:
   rules:
-    - host: springboot-service.169.56.88.122.nip.io
+    - host: wmsstock.169.56.88.122.nip.io
       http:
         paths:
           - path: /
             backend:
-              serviceName: mvp-myapp
+              serviceName: ms-wms-input
               servicePort: 8081
