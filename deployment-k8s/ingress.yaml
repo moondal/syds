@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: ing-springboot-service
+spec:
+  rules:
+    - host: springboot-service.169.56.88.122.nip.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: mvp-myapp
+              servicePort: 8081

@@ -8,7 +8,7 @@ ENV VERTICLE_HOME /usr/verticles
 # Add an docker user, make work dir
 RUN adduser --disabled-password --gecos "" docker &&  echo "docker ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && mkdir -p $VERTICLE_HOME && chown docker:docker $VERTICLE_HOME
 
-EXPOSE 80
+#EXPOSE 80
 
 WORKDIR $VERTICLE_HOME
 

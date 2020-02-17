@@ -46,13 +46,13 @@ podTemplate(
 			echo "**** START : " + stageName
 			
 			//git "https://github.com/devJacob01/springcloud.git"
-			git "https://gitlab.com/nalleyda/mvp-jenkins-springboot-sample.git"
+			git "https://gitlab.com/sylvi12/ms-wms-input.git"
 			// git url: "https://github.com/devJacob01/springcloud.git", branch: "master", credentialsId: "auth_gitlab"	
 			
 		}
 
 		//-- 환경변수 파일 읽어서 변수값 셋팅
-		def props = readProperties  file:"./deployment-k8s/pipeline-icp.properties"  // __custom__
+		def props = readProperties  file:"./deployment-k8s/pipeline.properties"  // __custom__
 		def tag = props["version"]
 		def dockerRegistry = props["dockerRegistry"]
 		def credentialRegistry=props["credentialRegistry"]
@@ -119,6 +119,7 @@ podTemplate(
 			stage(stageName) {
 				echo "**** START : " + stageName
 				container("docker") {
+					echo "${dockerRegistry} => ${credentialRegistry}";
 					docker.withRegistry("${dockerRegistry}", "${credentialRegistry}") {
 						sh "docker build -f ${baseDir}${baseDeployDir}/Dockerfile -t ${image}:${tag} ${WORKSPACE}"
 						sh "docker push ${image}:${tag}"
@@ -127,7 +128,7 @@ podTemplate(
 					}
 				}
 			}
-/*
+
 			stageName = "Image Vulnerability Scanning"	
 			stage(stageName) {
 				echo "**** START : " + stageName
@@ -139,13 +140,13 @@ podTemplate(
 					}
 				}
 			}
-*/						
+					
 			stageName = "Deploy to Cluster"
 			stage( stageName ) {
 				container("kubectl") {
 					echo "**** Deploy START : " + stageName
 					
-					sh "kubectl apply -n ${namespace} -f ${baseDir}${baseDeployDir}/${deployment}"
+					sh "kubectl apply -n ${namespace} -f ${baseDir}${baseDeployDir}"
 					sh "kubectl set image deployment ${appname} ${containername}=${image}:${tag} -n ${namespace}"					
 				}
 			}

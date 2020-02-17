@@ -23,7 +23,7 @@ spring:
 #    driverClassName: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://169.56.80.66 :3306/msadb?useUnicode=true&characterEncoding=utf-8
     driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://169.56.88.115:32767/msadb?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:log4jdbc:mysql://169.56.88.124:32767/tajo?useUnicode=true&characterEncoding=utf-8
     username: root
     password: "happy@cloud"
     sql-script-encoding: utf-8
