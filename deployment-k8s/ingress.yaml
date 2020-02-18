@@ -13,7 +13,6 @@ spec:
             backend:
               serviceName: ms-wms-input
               servicePort: 8081
-
           - path: /wherehouse
             backend:
               serviceName: ms-wms-wherehouse
