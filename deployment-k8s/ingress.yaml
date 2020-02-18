@@ -18,8 +18,3 @@ spec:
             backend:
               serviceName: ms-wms-wherehouse
               servicePort: 8081
-
-          - path: /output
-            backend:
-              serviceName: ms-wms-output
-              servicePort: 8081
