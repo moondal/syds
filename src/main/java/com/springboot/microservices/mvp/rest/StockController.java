@@ -47,7 +47,7 @@ public class StockController {
 		return new ResponseEntity<List<Stock>> (list, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value="재고 증가(param:locCd,barcode)")
+	@ApiOperation(value="재고 증가(입고 확정)(param:locCd,barcode)")
 	@RequestMapping(value="/setstockinsert", method=RequestMethod.POST)
 	public ResponseEntity <String> setStockInsert(
 			@RequestBody Stock stock
