@@ -9,7 +9,7 @@ spec:
     - host: wmsback.169.56.88.122.nip.io
       http:
         paths:
-          - path: /input
+          - path: /
             backend:
               serviceName: ms-wms-input
               servicePort: 8081
