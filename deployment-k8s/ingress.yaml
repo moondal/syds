@@ -17,4 +17,4 @@ spec:
           - path: /wherehouse
             backend:
               serviceName: ms-wms-wherehouse
-              servicePort: 8081
+              servicePort: 8082
