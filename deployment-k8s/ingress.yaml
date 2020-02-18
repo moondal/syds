@@ -6,10 +6,20 @@ metadata:
   name: ing-msinput-service
 spec:
   rules:
-    - host: wmsstock.169.56.88.122.nip.io
+    - host: wmsback.169.56.88.122.nip.io
       http:
         paths:
-          - path: /
+          - path: /input
             backend:
               serviceName: ms-wms-input
+              servicePort: 8081
+
+          - path: /wherehouse
+            backend:
+              serviceName: ms-wms-wherehouse
+              servicePort: 8081
+
+          - path: /output
+            backend:
+              serviceName: ms-wms-output
               servicePort: 8081
