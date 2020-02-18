@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: ing-msinput-service
+  name: ing-msback-service
 spec:
   rules:
     - host: wmsback.169.56.88.122.nip.io
