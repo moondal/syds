@@ -11,4 +11,5 @@ public class Wherehouse {
 	private int capaQty;
 	private String useYn;
 	private String locNm;
+	private int sort;
 }

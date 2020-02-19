@@ -25,14 +25,15 @@
 	</select>
 	
 	<select id="selectWherehouseList" resultType="com.springboot.microservices.mvp.model.Wherehouse">
-	    SELECT B.BARCODE ,
+	    SELECT 
+	         B.BARCODE ,
 			 B.ITEM_NM ,
 			 B.ITEM_CD ,
-			 B.QTY	  ,
+			 B.QTY	   ,
 			 C.CAPA_QTY,
 			 C.USE_YN  ,
-			 C.LOC_NM
-			  
+			 C.LOC_NM  ,
+			 C.SORT	    
 		FROM TB_STOCK A 
 		INNER JOIN TB_BARCODE B
 			ON A.BARCODE = B.BARCODE
@@ -45,8 +46,9 @@
 			'' AS ITE_CD  ,
 			'' AS QTY	  ,
 			A.CAPA_QTY    ,
-			A.USE_YN		  ,
-			A.LOC_NM
+			A.USE_YN	  ,
+			A.LOC_NM      ,
+			A.SORT
 		FROM TB_LOC A 
 		LEFT JOIN TB_STOCK B
 			ON A.LOC_CD = B.LOC_CD
