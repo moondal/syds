@@ -7,6 +7,8 @@ metadata:
       rewrite "(?i)/input$" / break;
       rewrite "(?i)/warehouse/(.*)" /$1 break;
       rewrite "(?i)/warehouse/$" / break;
+      rewrite "(?i)/out/(.*)" /$1 break;
+      rewrite "(?i)/out/$" / break;
     ingress.kubernetes.io/use-regex: "true"
   name: ing-wmsback-service
 spec:
@@ -21,4 +23,8 @@ spec:
           - path: "/warehouse"
             backend:
               serviceName: ms-wms-wherehouse
+              servicePort: 8081
+          - path: "/out"
+            backend:
+              serviceName: ms-wms-out
               servicePort: 8081
