@@ -39,7 +39,13 @@ spring:
           file-size-threshold: 2KB
           max-file-size: 200MB
           max-request-size: 215MB
-
+  rabbitmq:
+    host: 169.56.88.124
+    port: 31993
+    username: user
+    password: user
+    
+    
 mybatis:
     #type-handlers-package: com.springboot.microservices.sample
     #config-location: classpath:mybatis/mapper/**/*.xml
@@ -59,21 +65,22 @@ mybatis:
 #    port: 5672
 #    username: admin
 #    password: passw0rd
-#  rabbitmq:
-#    host: 169.56.80.70
-#    port: 30179
-#    username: user
-#    password: qRYmCjajJ9
+#rabbitmq:
+#     host: 169.56.80.70
+#     port: 5672
+#     username: user
+#     password: user
 
-
-prop: 
+# properties
+prop:
   rabbit:
     direct: 
-      exchange: "direct.exchange"
+      input : "direct.input"
     queue:
-      hello: "charge.hello.queue"
+      input: "wms.item.input.queue"
     route:
-      hello: "charge.hello.route"
+      input: "wms.item.input.route"
+  
   file:
      root: "/data/file/upload"
      temp: "/date/file/temp"

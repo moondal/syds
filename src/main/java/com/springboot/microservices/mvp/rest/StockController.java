@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.microservices.mvp.dao.StockDao;
 import com.springboot.microservices.mvp.model.Stock;
+import com.springboot.microservices.mvp.rabbitmq.BroadcastMessageProducer;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,6 +33,8 @@ public class StockController {
 	@Autowired
 	private StockDao stockDao;
 	
+	@Autowired
+	private BroadcastMessageProducer broadcastMessageProducer;
 		
 	@ApiOperation(value="위치별 재고 조회")
 	@RequestMapping(value="/getstocklist/{itemCd}", method=RequestMethod.GET)
@@ -60,11 +63,14 @@ public class StockController {
 		log.info("Start db update");
 		int re  = stockDao.updateStockInsert(stock);
 		
-		if( re == 1)
-		{
-			re  = stockDao.updateBarcode(stock);
-		}
+		log.info("re 결과 : " + Integer.toString(re));
 		
+		if(re == 1)
+		{	
+			// rabbitmq
+			stock.setUseYn("N"); // 비가용으로 업데이트 요청파라미터
+			broadcastMessageProducer.produceWmsItemInput(stock);
+		}
 		log.debug("result :"+ re);
 		
 		return new ResponseEntity<String> (re+"", HttpStatus.OK);
