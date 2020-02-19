@@ -12,7 +12,7 @@
 			,SCAN_YN
 	    FROM TB_BARCODE
 	    WHERE SCAN_YN = 'N'	    
-	    ORDER BY BARCODE
+	    ORDER BY ITEM_NM, BARCODE
 	</select>
 	
 </mapper>

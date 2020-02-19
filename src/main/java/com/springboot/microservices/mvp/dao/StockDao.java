@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.springboot.microservices.mvp.model.Stock;;
+import com.springboot.microservices.mvp.model.Stock;
+import com.springboot.microservices.mvp.model.Wherehouse;;
 
 
 @Mapper
@@ -40,5 +41,12 @@ public interface StockDao {
 	 * @throws Exception
 	 */
 	int updateBarcode(Stock stock) throws Exception;
+	
+	/**
+	 * 창고  재고조회
+	 * @return
+	 * @throws Exception
+	 */
+	List<Wherehouse> selectWherehouseList() throws Exception;	
 	
 }

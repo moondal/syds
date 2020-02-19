@@ -24,6 +24,35 @@
 		LIMIT 3
 	</select>
 	
+	<select id="selectWherehouseList" resultType="com.springboot.microservices.mvp.model.Wherehouse">
+	    SELECT B.BARCODE ,
+			 B.ITEM_NM ,
+			 B.ITEM_CD ,
+			 B.QTY	  ,
+			 C.CAPA_QTY,
+			 C.USE_YN  ,
+			 C.LOC_NM
+			  
+		FROM TB_STOCK A 
+		INNER JOIN TB_BARCODE B
+			ON A.BARCODE = B.BARCODE
+		INNER JOIN TB_LOC C
+			ON A.LOC_CD = C.LOC_CD
+		UNION ALL	
+		SELECT 
+			'' AS BARCODE ,
+			'' AS ITEM_NM ,
+			'' AS ITE_CD  ,
+			'' AS QTY	  ,
+			A.CAPA_QTY    ,
+			A.USE_YN		  ,
+			A.LOC_NM
+		FROM TB_LOC A 
+		LEFT JOIN TB_STOCK B
+			ON A.LOC_CD = B.LOC_CD
+		WHERE B.LOC_CD IS NULL 	
+	</select>
+
 	<!-- 
 		재고 증가 (프로시저)
 	 -->

@@ -16,7 +16,7 @@ spring:
       org.springframework: debug
       com.spriboot.microservices: debug
 #      org.hibernate: debug
-      jdbc.sqlonly: DEBUG 
+      jdbc.sqlonly: DEBUG
 #      jdbc: DEBUG
   # database
   datasource:
@@ -59,6 +59,7 @@ mybatis:
 #  spylogdelegator-name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
 #  dump-sql-maxlinelength: 0
 
+<<<<<<< HEAD
   # rabbit-mq
 #  rabbitmq:
 #    host: localhost
@@ -73,11 +74,31 @@ mybatis:
 
 # properties
 prop:
+=======
+   #rabbit-mq
+rabbitmq:
+    host: 169.56.88.124
+    port: 5672
+    username: user
+    password: user
+
+prop: 
+>>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
   rabbit:
     direct: 
+<<<<<<< HEAD
       input : "direct.input"
+=======
+      exchange: "direct.exchange"
+      input: "direct.input"
+>>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
     queue:
+<<<<<<< HEAD
       input: "wms.item.input.queue"
+=======
+      hello: "charge.hello.queue"
+      inputQueue: "wms.item.input"
+>>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
     route:
       input: "wms.item.input.route"
   
