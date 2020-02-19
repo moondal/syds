@@ -21,7 +21,8 @@
 						ON A.LOC_CD = C.LOC_CD
 						
 		WHERE	B.ITEM_CD = #{itemCd}
-		LIMIT 3
+		ORDER BY B.EFFT_DT, LOC_CD
+		LIMIT 5
 	</select>
 	
 	<select id="selectWherehouseList" resultType="com.springboot.microservices.mvp.model.Wherehouse">
@@ -56,8 +57,22 @@
 	</select>
 
 	<!-- 
-		재고 증가 
+		재고 증가 (프로시저)
 	 -->
+	<update id="updateStockInsert" statementType="CALLABLE" parameterType="Stock">
+		{
+		 call updateStockInsert(
+		 	#{locCd},
+			#{barcode}
+		 )
+		}
+		
+	</update>
+	
+	
+	<!-- 
+		재고 증가 
+	 
 	<insert id="updateStockInsert" parameterType="Stock">
 		INSERT INTO TB_STOCK (
 			LOC_CD,
@@ -75,7 +90,7 @@
 		WHERE	BARCODE = #{barcode};
 		
 	</update>
-	
+	-->
 	
 	<!-- 
 		재고 감소 

@@ -22,28 +22,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfiguration {
 
-//	@Bean
-//	public MessageConverter jsonMessageConverter() 
-//	{
-//		return new Jackson2JsonMessageConverter();
-//	}
-//	
-//	@Bean
-//	public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) 
-//	{
-//		RabbitTemplate template = new RabbitTemplate(connectionFactory);
-//		template.setMessageConverter(jsonMessageConverter());
-//		return template;
-//	}
-//	
-//	@Bean
-//	public DefaultClassMapper classMapper()
-//	{
-//		DefaultClassMapper classMapper = new DefaultClassMapper();
-//		Map<String, Class<?>> idClassMapping = new HashMap<>();
-//		idClassMapping.put("com.springboot.microservices.sample.rabbitmq", RabbitMessage.class);  // 기본 전문 클래스 
-//		classMapper.setIdClassMapping(idClassMapping);
-//		return classMapper;
-//	}
+	@Bean
+	public MessageConverter jsonMessageConverter() 
+	{
+		return new Jackson2JsonMessageConverter();
+	}
+	
+	@Bean
+	public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) 
+	{
+		RabbitTemplate template = new RabbitTemplate(connectionFactory);
+		template.setMessageConverter(jsonMessageConverter());
+		return template;
+	}
+	
+	@Bean
+	public DefaultClassMapper classMapper()
+	{
+		DefaultClassMapper classMapper = new DefaultClassMapper();
+		Map<String, Class<?>> idClassMapping = new HashMap<>();
+		idClassMapping.put("com.springboot.microservices.sample.rabbitmq", RabbitMessage.class);  // 기본 전문 클래스 
+		classMapper.setIdClassMapping(idClassMapping);
+		return classMapper;
+	}
 	  
 }

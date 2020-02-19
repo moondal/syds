@@ -39,7 +39,13 @@ spring:
           file-size-threshold: 2KB
           max-file-size: 200MB
           max-request-size: 215MB
-
+  rabbitmq:
+    host: 169.56.88.124
+    port: 31993
+    username: user
+    password: user
+    
+    
 mybatis:
     #type-handlers-package: com.springboot.microservices.sample
     #config-location: classpath:mybatis/mapper/**/*.xml
@@ -53,23 +59,20 @@ mybatis:
 #  spylogdelegator-name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
 #  dump-sql-maxlinelength: 0
 
-   #rabbit-mq
-rabbitmq:
-    host: 169.56.88.124
-    port: 5672
-    username: user
-    password: user
+# properties
 
-prop: 
+
+prop:
   rabbit:
     direct: 
-      exchange: "direct.exchange"
-      input: "direct.input"
+      input : "direct.input"
     queue:
-      hello: "charge.hello.queue"
-      inputQueue: "wms.item.input"
+      input: "wms.item.input.queue"
     route:
-      hello: "charge.hello.route"
+      input: "wms.item.input.route"
+      
+
+  
   file:
      root: "/data/file/upload"
      temp: "/date/file/temp"

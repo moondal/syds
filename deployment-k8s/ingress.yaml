@@ -2,18 +2,23 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.io/ingress.class: nginx
-  name: ing-msback-service
+    ingress.kubernetes.io/configuration-snippet: |
+      rewrite "(?i)/input/(.*)" /$1 break;
+      rewrite "(?i)/input$" / break;
+      rewrite "(?i)/warehouse/(.*)" /$1 break;
+      rewrite "(?i)/warehouse/$" / break;
+    ingress.kubernetes.io/use-regex: "true"
+  name: ing-wmsback-service
 spec:
   rules:
     - host: wmsback.169.56.88.122.nip.io
       http:
         paths:
-          - path: /input
+          - path: "/input"
             backend:
               serviceName: ms-wms-input
               servicePort: 8081
-          - path: /
+          - path: "/warehouse"
             backend:
               serviceName: ms-wms-wherehouse
               servicePort: 8081
