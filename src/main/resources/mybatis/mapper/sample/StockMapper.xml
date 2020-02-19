@@ -21,7 +21,8 @@
 						ON A.LOC_CD = C.LOC_CD
 						
 		WHERE	B.ITEM_CD = #{itemCd}
-		LIMIT 3
+		ORDER BY B.EFFT_DT, LOC_CD
+		LIMIT 5
 	</select>
 	
 	<select id="selectWherehouseList" resultType="com.springboot.microservices.mvp.model.Wherehouse">

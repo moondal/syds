@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.microservices.mvp.dao.StockDao;
 import com.springboot.microservices.mvp.model.Stock;
-<<<<<<< HEAD
+
 import com.springboot.microservices.mvp.rabbitmq.BroadcastMessageProducer;
-=======
+
 import com.springboot.microservices.mvp.model.Wherehouse;
->>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
