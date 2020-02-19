@@ -59,16 +59,14 @@
 	<!-- 
 		재고 증가 (프로시저)
 	 -->
-	<update id="updateStockInsert" statementType="CALLABLE" parameterType="Stock">
+	<update id="updateStockInsert" statementType="CALLABLE" parameterType="com.springboot.microservices.mvp.model.Stock">
 		{
 		 call updateStockInsert(
 		 	#{locCd},
 			#{barcode}
 		 )
 		}
-		
 	</update>
-	
 	
 	<!-- 
 		재고 증가 
