@@ -59,48 +59,19 @@ mybatis:
 #  spylogdelegator-name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
 #  dump-sql-maxlinelength: 0
 
-<<<<<<< HEAD
-  # rabbit-mq
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: admin
-#    password: passw0rd
-#rabbitmq:
-#     host: 169.56.80.70
-#     port: 5672
-#     username: user
-#     password: user
-
 # properties
-prop:
-=======
-   #rabbit-mq
-rabbitmq:
-    host: 169.56.88.124
-    port: 5672
-    username: user
-    password: user
 
-prop: 
->>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
+
+prop:
   rabbit:
     direct: 
-<<<<<<< HEAD
       input : "direct.input"
-=======
-      exchange: "direct.exchange"
-      input: "direct.input"
->>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
     queue:
-<<<<<<< HEAD
       input: "wms.item.input.queue"
-=======
-      hello: "charge.hello.queue"
-      inputQueue: "wms.item.input"
->>>>>>> branch 'master' of https://gitlab.com/samyang.minsu/ms-wms-input.git
     route:
       input: "wms.item.input.route"
+      
+
   
   file:
      root: "/data/file/upload"
