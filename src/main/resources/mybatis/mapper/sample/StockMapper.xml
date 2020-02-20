@@ -54,6 +54,7 @@
 		LEFT JOIN TB_STOCK B
 			ON A.LOC_CD = B.LOC_CD
 		WHERE B.LOC_CD IS NULL 	
+		ORDER BY SORT
 	</select>
 
 	<!-- 
